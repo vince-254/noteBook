@@ -1,0 +1,36 @@
+<head>
+  <title>noteBook</title>
+</head>
+
+<body>
+  <h1>Welcome to Meteor!</h1>
+  {{> info}}
+  {{> output}}
+  {{> editor}}
+  
+
+</body>
+
+
+
+<template name="info">
+  <h2>Document Title</h2>
+  {{> loginButtons}}
+  {{userName.username}}
+  <button class="refresh">refresh</button>
+  <!-- {{currentUser.username}} -->
+  
+</template>
+
+<template name="output">
+  {{#each documents}}
+  <ul>
+    <li>
+      <a href="#" id="item" data-id="{{_id}}">
+        {{_id}}
+        {{title}}
+      </a>
+    </li>
+  </ul>
+  {{/each}}
+</template>
