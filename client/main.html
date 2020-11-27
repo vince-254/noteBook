@@ -3,17 +3,26 @@
     <title>noteBook</title>
   </head>
   
-  <body>
-    <h1>Welcome to Meteor!</h1>
+  <body class="homeContainer">
+    <h1>Welcome to noteBook</h1>
     {{> info}}
-    {{> editor}}
+    {{> output}}
     
   
   </body>
 </template>
 
 <template name="editor">
+  {{doc.title}}
   <div class="editor-landing__demo">
+    <div class="form__group field">
+      <textarea class="form__field" placeholder="Title" id='title-text-input' rows="1" required>
+        
+      </textarea>
+      <label for="name" class="form__label">Title</label>
+    </div>
+    <!-- <label for="message-text-input">Message:</label>
+        <input type="text" class="form-control" id="title-text-input" placeholder="Type message here..."> -->
     <div class="editor-landing__demo-inner">
       <div id="editorjs"></div>
     </div>
@@ -57,17 +66,18 @@
   <h2>Document Title</h2>
   {{> loginButtons}}
   {{userName.username}}
-  <button class="refresh">refresh</button>
+  <button class="refresh">sample Content</button>
   <!-- {{currentUser.username}} -->
   
 </template>
 
 <template name="output">
   
-  
-  <button class="floating-btn">
-    Add Document
-  </button>
+  <a href="/newDoc">
+    <button class="floating-btn">
+      Add Document
+    </button>
+  </a>
   
   <div class="floating-text">
     Created by <a href="#" target="_blank">Vince</a>
@@ -79,7 +89,7 @@
       <div class="course-preview">
         <h6>Author</h6>
         <h2>Created by {{owner}}</h2>
-        <a href="#">ID: {{_id}} <i class="fas fa-chevron-right"></i></a>
+        <a href="#">Document ID: {{_id}} <i class="fas fa-chevron-right"></i></a>
       </div>
       <div class="course-info">
         <h6>{{createdOn}}</h6>

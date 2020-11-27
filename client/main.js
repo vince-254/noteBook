@@ -65,7 +65,8 @@ Template.info.events({
 Template.editor.events({
   "click #saveButton": async function(event){
     event.preventDefault();
-    var title = "Sample3 Doc";
+    var title = $('#title-text-input').val();
+    // var title = "Sample4 Doc";
 
     body = await editor.save();
 
@@ -301,14 +302,20 @@ Template.editor.onRendered(function(){
     //     },
     //   ]
     // },
-    onReady: function(){
+    onReady: async function(){
       var docId = Session.get("docid");
     // $(event.target).closest('#item').attr("data-id");
-    var doc = Documents.find({_id:docId}).fetch();
-    console.log(doc[0].body);  
-    console.log(doc[0]._id);
-    editor.render(doc[0].body);
-      // saveButton.click();
+    if (docId) {
+      console.log(docId);
+      var doc = await Documents.find({_id:docId}).fetch();
+      console.log("on Ready doc" + doc[0].title);
+      console.log(doc[0].body);  
+      console.log(doc[0]._id);
+      var title = doc[0].title;
+      $("#title-text-input").val(title);
+      editor.render(doc[0].body);
+    }
+    
     },
     onChange: function() {
       console.log('something changed');

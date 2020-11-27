@@ -5,14 +5,16 @@ import '../lib/collections.js';
 
 Meteor.methods({
     addDocument:function(title, body) {
-        if(1>0){//logged in user
+        if(this.userId){//logged in user
             doc = {
-                owner:this.userId,
+                owner: Meteor.users.findOne({ _id: Meteor.userId() }).username,
                 createdOn:new Date(),
                 title:title,
                 body:body
             };
             return Documents.insert(doc);
+        } else {
+            alert("You need to login to create a document");
         }
     },
 }
