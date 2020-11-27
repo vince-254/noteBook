@@ -1,15 +1,16 @@
-<head>
-  <title>noteBook</title>
-</head>
-
-<body>
-  <h1>Welcome to Meteor!</h1>
-  {{> info}}
-  {{> output}}
-  {{> editor}}
+<template name="mainPage">
+  <head>
+    <title>noteBook</title>
+  </head>
   
-
-</body>
+  <body>
+    <h1>Welcome to Meteor!</h1>
+    {{> info}}
+    {{> editor}}
+    
+  
+  </body>
+</template>
 
 <template name="editor">
   <div class="editor-landing__demo">
@@ -62,14 +63,32 @@
 </template>
 
 <template name="output">
+  
+  
+  <button class="floating-btn">
+    Add Document
+  </button>
+  
+  <div class="floating-text">
+    Created by <a href="#" target="_blank">Vince</a>
+  </div>
+
   {{#each documents}}
-  <ul>
-    <li>
-      <a href="#" id="item" data-id="{{_id}}">
-        {{_id}}
-        {{title}}
-      </a>
-    </li>
-  </ul>
+  <div class="courses-container">
+    <div class="course">
+      <div class="course-preview">
+        <h6>Author</h6>
+        <h2>Created by {{owner}}</h2>
+        <a href="#">ID: {{_id}} <i class="fas fa-chevron-right"></i></a>
+      </div>
+      <div class="course-info">
+        <h6>{{createdOn}}</h6>
+        <h2>{{title}}</h2>
+        <a href="/documents/{{_id}}" id="item" data-id="{{_id}}">
+          <button class="btn">View</button>
+        </a>
+      </div>
+    </div>
+  </div>
   {{/each}}
 </template>
