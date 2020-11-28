@@ -30,7 +30,7 @@
     </div>
   </div>
   <div class="fab fab1">
-    <span class="fab-action-button">
+    <span class="fab-action-button blue-button">
           <i class="fab-action-button__icon"></i>
       </span>
     <ul class="fab-buttons">
@@ -56,17 +56,28 @@
       </li>
     </ul>
   </div>
-  <!-- second FAB -->
-  <div class="fab" id="saveButton">
-    <span class="fab-action-button">
+  <!-- second FAB (Save) -->
+  <div class="fab fab2" id="saveButton">
+    <span class="fab-action-button blue-button">
           <i class="fab-action-button__save"></i>
       </span>
   </div>
+  {{#if editing}}
+    <!-- Third FAB (Delete) -->
+  <a href="/" class="a-no-line">
+    <div class="fab" id="deleteButton">
+      <span class="fab-action-button red-button">
+            <i class="fab-action-button__trash"></i>
+        </span>
+    </div>
+  </a>
+  {{/if}}
+  
 </template>
 
 <template name="info">
   <nav>
-    <a href="/">
+    <a href="/" class="a-no-line">
       <button class="button">Home</button>
     </a>
     <button class="button">
@@ -74,9 +85,8 @@
     </button>
   </nav>
   
-  {{userName.username}}
   
-  <!-- {{currentUser.username}} -->
+  
   
 </template>
 
@@ -89,8 +99,14 @@
   </a>
   
   <div class="floating-text">
-    Created by <a href="#" target="_blank">Vince</a>
+    {{#if currentUser.username}}
+    <!-- Third FAB (Delete) -->
+    Welcome <a href="#" target="_blank">{{currentUser.username}}</a>
+  {{else}} 
+  Log in to <a href="#" target="_blank">Create</a>
+  {{/if}}
   </div>
+  
 
   {{#each documents}}
   <div class="courses-container">

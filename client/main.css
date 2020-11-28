@@ -47,7 +47,10 @@ body {
   margin-left: -28px;
 }
 .fab.fab1 {
-  bottom: 100px;
+  bottom: 165px;
+}
+.fab.fab2 {
+  bottom: 90px;
 }
 .fab:hover {
   cursor: pointer;
@@ -76,11 +79,15 @@ body {
   display: block;
   width: 56px;
   height: 56px;
-  background-color: #29B6F6;
   border-radius: 50%;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 }
-
+.blue-button{
+  background-color: #29B6F6;
+}
+.red-button{
+  background-color: #ff1a1a;
+}
 .fab-buttons {
   position: absolute;
   left: 0;
@@ -105,6 +112,14 @@ body {
   width: 56px;
   height: 56px; 
   background: url("assets/save.svg") center no-repeat;
+  background-size: 25px 25px;
+  filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(277deg) brightness(97%) contrast(110%);
+}
+.fab-action-button__trash {
+  display: inline-block;
+  width: 56px;
+  height: 56px; 
+  background: url("assets/trash.svg") center no-repeat;
   background-size: 25px 25px;
   filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(277deg) brightness(97%) contrast(110%);
 }
@@ -204,9 +219,7 @@ body {
 	margin: 0;
 }
 
-.courses-container {
-	
-}
+
 
 .course {
 	background-color: #fff;
@@ -393,6 +406,9 @@ body {
   display: inline-block;
   font-size: 16px;
 } */
+.a-no-line{
+  text-decoration: none;
+}
 .button {
   background: #222;
   height: 50px;
@@ -410,6 +426,7 @@ body {
   cursor: pointer;
   padding-top: 5px;
   margin: 10px;
+  display: inline;
 }
 .dark-body {
   background: #1f1a25;
