@@ -36,29 +36,12 @@ Template.output.events({
     // console.log(doc[0]._id);
     // editor.render(doc[0].body);
   },
+  "click #newDoc":function(event){
+    Session.set("docid", null);
+  },
 });
 Template.info.events({
-  "click .refresh":function(event){
-    editor.render(
-      {
-        blocks: [
-          {
-            type: "image",
-            data: {
-              url: "https://cdn.pixabay.com/photo/2017/09/01/21/53/blue-2705642_1280.jpg"
-            }
-          },
-          {
-            type: "header",
-            data: {
-               text: "New header",
-               level: 2
-            }
-          }
-        ]
-      }
-    );
-  },
+  
 }
 );
 ///Saving a doc////
@@ -82,7 +65,28 @@ Template.editor.events({
     });
     return false;
     
-  }
+  },
+  "click .refresh":function(event){
+    editor.render(
+      {
+        blocks: [
+          {
+            type: "image",
+            data: {
+              url: "https://cdn.pixabay.com/photo/2017/09/01/21/53/blue-2705642_1280.jpg"
+            }
+          },
+          {
+            type: "header",
+            data: {
+               text: "New header",
+               level: 2
+            }
+          }
+        ]
+      }
+    );
+  },
 });
 
 

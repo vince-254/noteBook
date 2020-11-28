@@ -13,6 +13,8 @@
 </template>
 
 <template name="editor">
+  {{> info}}
+  <button class="refresh button">sample Content</button>
   {{doc.title}}
   <div class="editor-landing__demo">
     <div class="form__group field">
@@ -63,10 +65,17 @@
 </template>
 
 <template name="info">
-  <h2>Document Title</h2>
-  {{> loginButtons}}
+  <nav>
+    <a href="/">
+      <button class="button">Home</button>
+    </a>
+    <button class="button">
+      {{> loginButtons}}
+    </button>
+  </nav>
+  
   {{userName.username}}
-  <button class="refresh">sample Content</button>
+  
   <!-- {{currentUser.username}} -->
   
 </template>
@@ -74,7 +83,7 @@
 <template name="output">
   
   <a href="/newDoc">
-    <button class="floating-btn">
+    <button class="floating-btn" id="newDoc">
       Add Document
     </button>
   </a>
